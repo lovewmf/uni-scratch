@@ -1,0 +1,33 @@
+{
+  "name": "@uni-ui/scratch-plugs",
+  "version": "1.0.0",
+  "description": "刮刮乐 刮一刮 中奖 uni-app js_sdk",
+  "main": "dist/code.wmf.min.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scratch",
+    "中奖",
+    "刮刮乐",
+    "刮一刮",
+    "canvas",
+    "uni-app",
+    "小程序",
+    "TS"
+  ],
+  "author": "wmf",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@dcloudio/types": "^2.5.12",
+    "rollup": "^2.57.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-uglify": "^5.0.2",
+    "typescript": "^4.4.3"
+  }
+}
