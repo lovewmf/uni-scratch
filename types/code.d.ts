@@ -11,11 +11,13 @@ declare namespace StrongCode {
     */
     interface ScratchProps {
         id: string | UniApp.CanvasContext, //画布id
+        mackId: string | UniApp.CanvasContext,
         width: string | number, // 画布宽度
         height: string | number, //画布高度
         padding?:string | number, // 内边距
         margin?: string | number, // 外边距
-        bgColor?: string,//画布背景色
+        bgColor1?: string,//画布背景色
+        bgColor2?: string,//画布背景色
         maskColor?: string,//遮罩颜色
         maskImg?: string,// 遮罩图片 设置了此属性 遮罩颜色失效
         result: ScratchTextProps, //中奖信息

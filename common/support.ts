@@ -108,7 +108,7 @@ export const GETSIZE: SizeType = {
  * @param k 
  * @returns 
  */
-export const SaveCodeImg = function(k: StrongCode.SaveCanvasPars): object{
+export const SaveImg = function(k: StrongCode.SaveCanvasPars): object{
     const width: number = UNIT_CONVERSION(Number(k.width));
     const height: number = UNIT_CONVERSION(Number(k.height));
     const pixelRatio: number = getPixelRatio('pixelRatio') as  number;
@@ -135,86 +135,4 @@ export const SaveCodeImg = function(k: StrongCode.SaveCanvasPars): object{
             })
         }
     })
-}
-// 颜色渐变设置 后期优化此方法
-export const SetGradient = function (ctx: UniApp.CanvasContext,width: number,height: number,colors: string[]): UniApp.CanvasGradient {
-    let GRD: UniApp.CanvasGradient = ctx.createLinearGradient(0, 0, width, height);
-    if(colors.length === 1){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(1, colors[0]);
-    }
-    if(colors.length === 2){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(1, colors[1]);
-    }
-    if(colors.length === 3){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(0.5, colors[1]);
-        GRD.addColorStop(1, colors[2]);
-    }
-    if(colors.length === 4){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(0.35, colors[1]);
-        GRD.addColorStop(0.7, colors[2]);
-        GRD.addColorStop(1, colors[3]);
-    }
-    if(colors.length === 5){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(0.35, colors[1]);
-        GRD.addColorStop(0.6, colors[2]);
-        GRD.addColorStop(0.8, colors[3]);
-        GRD.addColorStop(1, colors[4]);
-    }
-    if(colors.length === 6){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(0.25, colors[1]);
-        GRD.addColorStop(0.45, colors[2]);
-        GRD.addColorStop(0.65, colors[3]);
-        GRD.addColorStop(0.85, colors[4]);
-        GRD.addColorStop(1, colors[5]);
-    }
-    if(colors.length === 7){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(0.15, colors[1]);
-        GRD.addColorStop(0.35, colors[2]);
-        GRD.addColorStop(0.45, colors[3]);
-        GRD.addColorStop(0.65, colors[4]);
-        GRD.addColorStop(0.85, colors[5]);
-        GRD.addColorStop(1, colors[6]);
-    }
-    if(colors.length === 8){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(0.1, colors[1]);
-        GRD.addColorStop(0.25, colors[2]);
-        GRD.addColorStop(0.45, colors[3]);
-        GRD.addColorStop(0.65, colors[4]);
-        GRD.addColorStop(0.85, colors[5]);
-        GRD.addColorStop(0.9, colors[6]);
-        GRD.addColorStop(1, colors[7]);
-    }
-    if(colors.length === 9){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(0.2, colors[1]);
-        GRD.addColorStop(0.3, colors[2]);
-        GRD.addColorStop(0.5, colors[3]);
-        GRD.addColorStop(0.6, colors[4]);
-        GRD.addColorStop(0.7, colors[5]);
-        GRD.addColorStop(0.8, colors[6]);
-        GRD.addColorStop(0.9, colors[7]);
-        GRD.addColorStop(1, colors[8]);
-    }
-    if(colors.length >= 10){
-        GRD.addColorStop(0, colors[0]);
-        GRD.addColorStop(0.1, colors[1]);
-        GRD.addColorStop(0.2, colors[2]);
-        GRD.addColorStop(0.3, colors[3]);
-        GRD.addColorStop(0.4, colors[4]);
-        GRD.addColorStop(0.5, colors[5]);
-        GRD.addColorStop(0.6, colors[6]);
-        GRD.addColorStop(0.7, colors[7]);
-        GRD.addColorStop(0.85, colors[8]);
-        GRD.addColorStop(1, colors[9]);
-    }
-    return GRD
-
 }
