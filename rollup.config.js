@@ -6,7 +6,7 @@ const getPath = _path => path.resolve(__dirname, _path)
 export default {
     input: 'index.ts',
     output: {
-        file: 'dist/code.wmf.min.js',
+        file: 'dist/scratch.wmf.min.js',
         name: 'CODE',
         format: 'umd'//amd,cjs,es,iife,umd
     },

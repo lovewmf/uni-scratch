@@ -19,6 +19,8 @@ declare namespace StrongCode {
         bgColor1?: string,//画布背景色
         bgColor2?: string,//画布背景色
         maskColor?: string,//遮罩颜色
+        source?: string,
+        LineWidth?: number,
         maskImg?: string,// 遮罩图片 设置了此属性 遮罩颜色失效
         result: ScratchTextProps, //中奖信息
         ctx: AnyObject // 当前上下问=文 this

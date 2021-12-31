@@ -3,6 +3,7 @@ src
 .babelrc
 rollup.config.js
 package-lock.json
+yarn.lock
 package.json
 tsconfig.json
 README.md

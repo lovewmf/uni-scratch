@@ -31,19 +31,15 @@ export class WidgetScratch {
         this.maskArea();
     }
     private init (): void {
-        if (!this.parameter.result.text || !this.parameter.result.img) {
-            console.warn("没有找到中奖信息");
-            return
-        }
-        if (!this.parameter.id){
+        if (!this.parameter.id && !this.parameter.mackId){
             console.warn("没有找到canvas id或者实列!");
             return
         }
         this.ctx.clearRect(0, 0, this.width, this.height);
         this.ctx.setFillStyle(this.parameter.bgColor1 || "#C5C5C5");
 		this.ctx.fillRect(0, 0, this.width, this.height);//设置画布大小
-		this.ctx.setFillStyle(this.parameter.bgColor2 ||"#FFFFFF");
         //中奖区域
+		this.ctx.setFillStyle(this.parameter.bgColor2 ||"#FFFFFF");
 		this.ctx.fillRect(
             this.padding,// x坐标
             this.padding, // y坐标
@@ -54,22 +50,22 @@ export class WidgetScratch {
         this.ctx.setTextAlign('center');//'left'、'center'、'right'
 		this.ctx.setTextBaseline('middle');//可选值 'top'、'bottom'、'middle'、'normal'
 		this.ctx.font = this.parameter.result.font || "bold 30px system-ui",
-		this.ctx.setFillStyle("#F0AD4E");
+		this.ctx.setFillStyle(this.parameter.result.color || "#F0AD4E");
 		this.ctx.fillText(this.parameter.result.text, this.width/2, this.height/2);
 
         const x: number = this.padding;
         const y: number = this.padding;
-        const h: number = this.width - this.padding*2;
-        const w: number = this.height - this.padding*2;
+        const w: number = this.width - this.padding*2;
+        const h: number = this.height - this.padding*2;
         //中奖信息图片展示
         this.parameter.result.img ? this.ctx.drawImage('/static/scratch_music.png', x,y,w,h) : false;
         this.ctx.draw(false);
     }
     private maskArea (): void {
-        const x: number = this.padding;
-        const y: number = this.padding;
-        const h: number = this.width - this.padding*2 - this.margin*2;
-        const w: number = this.height - this.padding*2 - this.margin*2;
+        const x: number = this.padding + this.margin;
+        const y: number = this.padding + this.margin;
+        const w: number = this.width - this.padding*2 - this.margin*2;
+        const h: number = this.height - this.padding*2 - this.margin*2;
         this.mackCtx.clearRect(x, y, w, h);
         this.mackCtx.setFillStyle(this.parameter.maskColor || "#C5C5C5");
 		this.mackCtx.fillRect(x,y,w,h);//设置画布大小
@@ -77,6 +73,7 @@ export class WidgetScratch {
 		this.mackCtx.draw(false)
     }
     public touchMove (x: number,y: number): void {
+        this.mackCtx.globalCompositeOperation = "destination-out"
         let point: StrongCode.ScratchTouchProps = {
             x: x,
             y: y
@@ -97,7 +94,7 @@ export class WidgetScratch {
     }
     private draw (): void {
         if(this.touch.length >= 2) {
-            this.mackCtx.setLineWidth(30);//线条宽度单位px
+            this.mackCtx.setLineWidth(this.parameter.LineWidth || 30);//线条宽度单位px
             this.mackCtx.setLineCap('round');//线条的结束端点样式
             this.mackCtx.setLineJoin('round');//线条
             this.mackCtx.beginPath();
